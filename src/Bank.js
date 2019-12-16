@@ -21,27 +21,30 @@ Bank.prototype.statementShow = function() {
 
 Bank.prototype.credit = function(sum) {
   this.balance += sum;
-
   this.creditDisplay(sum);
 };
 
 Bank.prototype.debit = function(sum) {
   this.balance -= sum;
-
   this.debitDisplay(sum);
 };
 
 Bank.prototype.creditDisplay = function(sum) {
-
-  this.outputArr.push(this.getDate()+' || '+Number(sum).toFixed(2)+' || || '+Number(this.balance).toFixed(2));
+  this.outputArr.push(this.getDate()+' || '+this.twoDP(sum)+' || || '+
+  this.twoDP(this.balance));
 };
 
 Bank.prototype.debitDisplay = function(sum) {
-  this.outputArr.push(this.getDate()+' || || '+Number(sum).toFixed(2)+' || '+Number(this.balance).toFixed(2));
+  this.outputArr.push(this.getDate()+' || || '+this.twoDP(sum)+' || '+
+  this.twoDP(this.balance));
 };
 
 Bank.prototype.getDate = function() {
   var d = new Date();
   return d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
-  d.getFullYear().toString().charAt(3)
-}
+  d.getFullYear().toString().charAt(3);
+};
+
+Bank.prototype.twoDP = function(num) {
+  return Number(num).toFixed(2);
+};
