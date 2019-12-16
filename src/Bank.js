@@ -1,14 +1,14 @@
 function Bank() {
   this.balance = 0;
-  this.arrOutput = ["date || credit || debit || balance"];
+  this.outputArr = ["date || credit || debit || balance"];
 };
 
 Bank.prototype.statementCalc = function() {
 
   var output = "";
 
-  for ( i=0; i<this.arrOutput.length; i++) {
-    output += this.arrOutput[i] + "\n";
+  for ( i=0; i<this.outputArr.length; i++) {
+    output += this.outputArr[i] + "\n";
   }
 
   output = output.substring(0,output.length-1)
@@ -22,23 +22,26 @@ Bank.prototype.statementShow = function() {
 Bank.prototype.credit = function(sum) {
   this.balance += sum;
 
-  this.addCreditDisplay(sum);
+  this.creditDisplay(sum);
 };
 
 Bank.prototype.debit = function(sum) {
   this.balance -= sum;
 
-  this.addDebitDisplay(sum);
+  this.debitDisplay(sum);
 };
 
-Bank.prototype.addCreditDisplay = function(sum) {
-  var d = new Date();
-  this.arrOutput.push(d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
-  d.getFullYear().toString().charAt(3)+' || '+Number(sum).toFixed(2)+' || || '+Number(this.balance).toFixed(2));
+Bank.prototype.creditDisplay = function(sum) {
+
+  this.outputArr.push(this.getDate()+' || '+Number(sum).toFixed(2)+' || || '+Number(this.balance).toFixed(2));
 };
 
-Bank.prototype.addDebitDisplay = function(sum) {
-  var d = new Date();
-  this.arrOutput.push(d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
-  d.getFullYear().toString().charAt(3)+' || || '+Number(sum).toFixed(2)+' || '+Number(this.balance).toFixed(2));
+Bank.prototype.debitDisplay = function(sum) {
+  this.outputArr.push(this.getDate()+' || || '+Number(sum).toFixed(2)+' || '+Number(this.balance).toFixed(2));
 };
+
+Bank.prototype.getDate = function() {
+  var d = new Date();
+  return d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
+  d.getFullYear().toString().charAt(3)
+}
