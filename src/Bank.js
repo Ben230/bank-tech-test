@@ -22,11 +22,16 @@ Bank.prototype.statementShow = function() {
 
 Bank.prototype.credit = function(sum) {
   this.balance += sum;
+
   var d = new Date();
   this.arrOutput.push(d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
-  d.getFullYear().toString().charAt(3)+' || '+sum+' || || '+this.balance);
+  d.getFullYear().toString().charAt(3)+' || '+Number(sum).toFixed(2)+' || || '+Number(this.balance).toFixed(2));
 };
 
 Bank.prototype.debit = function(sum) {
   this.balance -= sum;
+
+  var d = new Date();
+  this.arrOutput.push(d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
+  d.getFullYear().toString().charAt(3)+' || || '+Number(sum).toFixed(2)+' || '+Number(this.balance).toFixed(2));
 };
