@@ -42,3 +42,4 @@ To begin, I looked at the acceptance criteria and instructions to get a good und
 I used the prototype structure for the Bank function, this meant it was easy to add on functions for each test. Any repeated code was extracted and placed into a new function which I then called.
 
 ## Pictures of program
+![Alt text](/img/bankProgram.png?raw=true)
