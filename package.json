@@ -1,0 +1,35 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/Bank.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jasmine-node spec",
+    "coverage": "istanbul cover jasmine-node spec",
+    "show-coverage": "open coverage/lcov-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ben230/bank-tech-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ben230/bank-tech-test/issues"
+  },
+  "homepage": "https://github.com/Ben230/bank-tech-test#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^3.0.0"
+  }
+}

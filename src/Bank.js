@@ -48,3 +48,6 @@ Bank.prototype.getDate = function() {
 Bank.prototype.twoDP = function(num) {
   return Number(num).toFixed(2);
 };
+
+// export so jasmine can see the Bank function
+module.exports.Bank = Bank;

@@ -1,10 +1,22 @@
+// require Bank function
+var bankModule = require('../src/Bank.js');
+var Bank = bankModule.Bank;
+
+// helper function
+getDate = function() {
+  var d = new Date();
+  return d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear().toString().charAt(2)+
+  d.getFullYear().toString().charAt(3);
+};
+
 describe("Bank", function() {
   describe("After creating a new bank account", function() {
 
     var bankAccount;
 
     beforeEach(function() {
-      bankAccount = new Bank();
+    //   bankAccount = new Bank();
+      bankAccount = new Bank;
     });
 
     it("statementShow returns an empty statement", function() {
@@ -29,21 +41,21 @@ describe("Bank", function() {
     it("display after credit of 200", function() {
       bankAccount.credit(200);
       expect(bankAccount.statementCalc()).toEqual("date || credit || debit || balance\n"
-       + "16/12/19 || 200.00 || || 200.00");
+       +getDate()+" || 200.00 || || 200.00");
     });
 
     it("display after credit of 200 and 250", function() {
       bankAccount.credit(200);
       bankAccount.credit(250.99);
       expect(bankAccount.statementCalc()).toEqual("date || credit || debit || balance\n"
-       + "16/12/19 || 200.00 || || 200.00\n16/12/19 || 250.99 || || 450.99");
+       +getDate()+" || 200.00 || || 200.00\n"+getDate()+" || 250.99 || || 450.99");
     });
 
     it("display after credit of 200 and debit of 75", function() {
       bankAccount.credit(200.50);
       bankAccount.debit(75);
       expect(bankAccount.statementCalc()).toEqual("date || credit || debit || balance\n"
-       + "16/12/19 || 200.50 || || 200.50\n16/12/19 || || 75.00 || 125.50");
+       +getDate()+" || 200.50 || || 200.50\n"+getDate()+" || || 75.00 || 125.50");
     });
   });
 });
