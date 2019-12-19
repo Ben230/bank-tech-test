@@ -8,13 +8,13 @@ Make sure you have node downloaded on your machine, and install the dependencies
 jasmine-node, istanbul, eslint
 
 In the package.json file, scripts should look like this:
-'''
+```
 "scripts": {
   "test": "jasmine-node spec",
   "coverage": "istanbul cover jasmine-node spec",
   "show-coverage": "open coverage/lcov-report/index.html"
 },
-'''
+```
 
 From the command line,
 To see the tests evaluated and test coverage, npm run coverage
